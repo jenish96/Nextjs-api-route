@@ -1,0 +1,33 @@
+export const users = [
+    {
+        id:1,
+        name:"jenish",
+        age:21,
+        email:"jenishborda@gmail.com"
+    },
+    {
+        id:2,
+        name:"ankit",
+        age:23,
+        email:"ankit@gmail.com"
+    },
+    {
+        id:3,
+        name:"jalbin",
+        age:23,
+        email:"jalbin@gmail.com"
+    },
+    {
+        id:4,
+        name:"vaibhav",
+        age:22,
+        email:"vaibhav@gmail.com"
+    },
+    {
+        id:5,
+        name:"jay",
+        age:20,
+        email:"jay@gmail.com"
+    }
+
+]
