@@ -13,7 +13,7 @@ const Page = async () => {
     return (
         <>
             <br />
-            <h1 className="float-left">Product Page</h1> 
+            <h1 className="float-left">Product Page</h1>
             <h1><Link href="/products/addProduct">Add Product</Link></h1>
             <br />
             <table>
@@ -23,6 +23,7 @@ const Page = async () => {
                     <th>Company</th>
                     <th>Color</th>
                     <th>Category</th>
+                    <th>Actions</th>
                 </tr>
                 {
                     products?.map((item, index) =>
@@ -32,10 +33,11 @@ const Page = async () => {
                             <td>{item.company}</td>
                             <td>{item.color}</td>
                             <td>{item.category}</td>
+                            <td><Link href={`/products/${item._id}`}> Edit</Link></td>
                         </tr>
                     )
                 }
-            </table>
+            </table >
         </>
     )
 }

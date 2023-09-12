@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
 
     try {
-        // await mongoose.connect(process.env.MONGO_DB)
+        await mongoose.connect(process.env.MONGO_DB)
 
         const data = await Product.find()
         return NextResponse.json({ result: data, status: true })
@@ -17,6 +17,7 @@ export async function GET() {
 }
 
 export async function POST(req, res) {
+    await mongoose.connect(process.env.MONGO_DB)
     const payload = await req.json()
     let product = new Product(payload)
     let data = await product.save()
