@@ -1,11 +1,13 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 const Page = (props) => {
     const [product, setProduct] = useState()
     const [data, setData] = useState()
+    const router = useRouter();
     const id = props.params.update
     const getProduct = async () => {
         let res = await fetch(`http://localhost:3000/api/products/${id}`)
@@ -22,11 +24,15 @@ const Page = (props) => {
     }
 
     const handelUpdate = async () => {
-        // let res = await fetch(`http://localhost:3000/api/products/${id}`, {
-        //     method: "PUT",
-        //     body:
-        // })
-        console.log("Hello, handelUpdate")
+        let res = await fetch(`http://localhost:3000/api/products/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(data)
+        })
+        res = await res.json()
+        if (res.result) {
+            alert("Product Updated")
+            router.push('/products')
+        }
     }
     return (
         <>
@@ -40,7 +46,7 @@ const Page = (props) => {
 
                 <button type="button" onClick={handelUpdate} className="btn">Update</button>
             </div>
-            <br/>
+            <br />
             <Link href="/products"><b>Back TO Product</b></Link>
         </>
     )

@@ -20,3 +20,12 @@ export async function GET(req, res) {
     const data = await Product.findById(id);
     return NextResponse.json({ result: data })
 }
+
+export async function DELETE(req, res) {
+    await mongoose.connect(process.env.MONGO_DB)
+
+    const id = res.params.product_id
+    const data = await Product.deleteOne({ _id: id })
+    return NextResponse.json({ result: data })
+
+}

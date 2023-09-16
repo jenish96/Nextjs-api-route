@@ -1,7 +1,8 @@
 import Link from "next/link"
+import DeleteProduct from "../util/DeleteProduct"
 
 const getProducts = async () => {
-    let data = await fetch("http://localhost:3000/api/products")
+    let data = await fetch("http://localhost:3000/api/products", { cache: "no-cache" })
     data = await data.json()
     return data.result
 }
@@ -33,7 +34,9 @@ const Page = async () => {
                             <td>{item.company}</td>
                             <td>{item.color}</td>
                             <td>{item.category}</td>
-                            <td><Link href={`/products/${item._id}`}> Edit</Link></td>
+                            <td><Link href={`/products/${item._id}`}> Edit</Link>&nbsp;|&nbsp;
+                                <DeleteProduct id={item._id} />
+                            </td>
                         </tr>
                     )
                 }

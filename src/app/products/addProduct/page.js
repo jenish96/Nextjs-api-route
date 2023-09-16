@@ -1,10 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 const Page = () => {
 
     const [product, setProduct] = useState()
+    const router = useRouter()
 
     const handelChange = (e) => {
         setProduct({ ...product, [e.target.name]: e.target.value })
@@ -16,7 +18,10 @@ const Page = () => {
             body: JSON.stringify(product)
         })
         res = await res.json()
-        res.status ? alert("Product Added") : alert("Error!")
+        if (res.status) {
+            alert("Product Added")
+            router.push('/products')
+        } else { alert("Error!") }
 
         // console.log("AddProduct", res.status)
     }
