@@ -2,7 +2,7 @@ import Link from "next/link"
 import DeleteUser from "../util/DeleteUser"
 
 const getUsers = async () => {
-    const data = await fetch("http://localhost:3000/api/users")
+    const data = await fetch("http://127.0.0.1:3000/api/users")
     const res = await data.json()
     return res
 }

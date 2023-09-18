@@ -10,7 +10,7 @@ const Page = (props) => {
     const router = useRouter();
     const id = props.params.update
     const getProduct = async () => {
-        let res = await fetch(`http://localhost:3000/api/products/${id}`)
+        let res = await fetch(`http://127.0.0.1:3000/api/products/${id}`)
         res = await res.json()
         setProduct(res.result)
     }
@@ -24,7 +24,7 @@ const Page = (props) => {
     }
 
     const handelUpdate = async () => {
-        let res = await fetch(`http://localhost:3000/api/products/${id}`, {
+        let res = await fetch(`http://127.0.0.1:3000/api/products/${id}`, {
             method: "PUT",
             body: JSON.stringify(data)
         })

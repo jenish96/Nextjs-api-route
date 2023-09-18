@@ -12,7 +12,7 @@ const Page = ({ params }) => {
     // console.log("user--", user.name)
 
     const getUser = async () => {
-        let data = await fetch(`http://localhost:3000/api/users/${params.userid}`)
+        let data = await fetch(`http://127.0.0.1:3000/api/users/${params.userid}`)
         data = await data.json()
         setName(data[0].name)
         setEmail(data[0].email)
@@ -20,7 +20,7 @@ const Page = ({ params }) => {
 
     const handleUpdate = async () => {
         console.log(name, email)
-        let res = await fetch(`http://localhost:3000/api/users/${params.userid}`, {
+        let res = await fetch(`http://127.0.0.1:3000/api/users/${params.userid}`, {
             method: "PUT",
             body: JSON.stringify({ name, email })
         })

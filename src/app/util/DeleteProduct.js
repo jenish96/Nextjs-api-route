@@ -7,7 +7,7 @@ const DeleteProduct = ({ id }) => {
     const router = useRouter()
 
     const handelDelete = async () => {
-        let res = await fetch(`http://localhost:3000/api/products/${id}`, {
+        let res = await fetch(`http://127.0.0.1:3000/api/products/${id}`, {
             method: "DELETE"
         })
         res = await res.json()

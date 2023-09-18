@@ -9,7 +9,7 @@ const Page = () => {
 
         const data = new FormData()
         data.set("file", file)
-        let res = await fetch("http://localhost:3000/api/upload", {
+        let res = await fetch("http://127.0.0.1:3000/api/upload", {
             method: "POST",
             body: data
         })
